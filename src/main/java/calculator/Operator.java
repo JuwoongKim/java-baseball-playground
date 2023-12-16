@@ -1,5 +1,7 @@
 package calculator;
 
+import static calculator.exception.ErrorCode.*;
+
 import java.util.Arrays;
 
 import calculator.exception.ExpressionValidationException;
@@ -46,7 +48,7 @@ public enum Operator {
 		return Arrays.stream(Operator.values())
 			.filter(v -> v.symbol.equals(operator))
 			.findFirst()
-			.orElseThrow(() -> new ExpressionValidationException("올바른 수식이 아닙니다."))
+			.orElseThrow(() -> new ExpressionValidationException(INVALID_EXPRESSION.getMessage()))
 			.operate(rightOperand, leftOperand);
 	}
 }
