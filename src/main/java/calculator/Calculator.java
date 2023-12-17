@@ -13,8 +13,7 @@ public class Calculator {
 		ADD("+", (a, b) -> a + b),
 		SUBTRACT("-", (a, b) -> a - b),
 		MULTIPLY("*", (a, b) -> a * b),
-		DIVIDE("/", (a, b) -> a / b)
-		;
+		DIVIDE("/", (a, b) -> a / b);
 
 		private String symbol;
 		private BiFunction<Long, Long, Long> operate;
@@ -33,7 +32,7 @@ public class Calculator {
 		}
 	}
 
-	public String calculate(Expression expression) {
+	public static String calculate(Expression expression) {
 		String[] expressionElements = expression.getExpressionElements();
 
 		String rightOperand = expressionElements[0];
@@ -47,7 +46,7 @@ public class Calculator {
 		return rightOperand;
 	}
 
-	private String operate(String operator, String rightOperand, String leftOperand) {
+	private static String operate(String operator, String rightOperand, String leftOperand) {
 		Long rightOperandNumber = Long.parseLong(rightOperand);
 		Long leftOperandNumber = Long.parseLong(leftOperand);
 

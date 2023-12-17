@@ -16,9 +16,8 @@ class CalculatorTest {
 	@CsvSource(value = {"2 + 3 * 4 / 2:10", "200 + 300 * 40 / 20:1000"}, delimiter = ':')
 	void calculate(String input, String expectedResult) {
 		Expression expression = new Expression(input);
-		Calculator calculator = new Calculator();
 
-		String actualResult = calculator.calculate(expression);
+		String actualResult = Calculator.calculate(expression);
 
 		assertThat(actualResult).isEqualTo(expectedResult);
 	}
